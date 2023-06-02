@@ -14,7 +14,7 @@ const AgentItem = ({ image, info, style }) => {
   return (
     <motion.div
       variants={item}
-      className={`p-8 bg-white rounded scale-75 sm:scale-100 w-[362px] border border-[#F6FBFD] shadow-[0px_20px_50px_0px_#c6d9e14d] max-h-[435px] ${style}`}
+      className={`p-8 bg-white rounded scale-75 sm:scale-100 w-11/12 md:w-[300px] lg:w-[362px] border border-[#F6FBFD] shadow-[0px_20px_50px_0px_#c6d9e14d] max-h-[435px] ${style}`}
     >
       <div className="flex justify-between">
         <Icon icon="iconoir:star" width="24" height="24" />

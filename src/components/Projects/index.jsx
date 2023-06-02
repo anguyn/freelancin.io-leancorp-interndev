@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import { Icon } from '@iconify/react';
 import 'react-multi-carousel/lib/styles.css';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Project1 from '../../assets/images/Home/Projects/Project1.png';
 import Project2 from '../../assets/images/Home/Projects/Project2.png';
 import Project3 from '../../assets/images/Home/Projects/Project3.png';
@@ -101,10 +101,15 @@ const projects = [
   },
 ];
 
+const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
+const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
+
 const Projects = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const carouselRef = useRef();
   const [selectedProjects, setSelectedProjects] = useState(projects);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
 
   const selectTab = () => {
     const copiedItems = [...projects];
@@ -120,7 +125,9 @@ const Projects = () => {
   };
   return (
     <div className="mb-36">
-      <h1 className="text-center text-6xl font-semibold text-subTitle">Our Projects</h1>
+      <h1 className="text-center text-4xl phone:text-5xl md:text-6xl font-semibold text-subTitle">
+        Our Projects
+      </h1>
       <h5 className="text-center text-lg mt-6 mb-12 text-[#9598A0]">
         We have been providing great <br /> flooring solutions service.
       </h5>
@@ -151,7 +158,7 @@ const Projects = () => {
           </button>
         ))}
       </div>
-      <div className="flex justify-center sm:justify-end gap-4 max-w-maxWidth1 my-10 mx-auto">
+      <div className="flex justify-center sm:justify-end sm:px-4 gap-4 max-w-maxWidth1 my-10 mx-auto">
         <div
           className="border rounded-full p-5 cursor-pointer"
           onClick={() => {
@@ -182,20 +189,30 @@ const Projects = () => {
         itemClass="flex justify-center items-center sm:block sm:-mr-[40px] sm:ml-[40px]"
       >
         {selectedProjects?.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             className="relative flex w-[380px] h-[300px] sm:w-[340px] sm:h-[256px] rounded overflow-hidden"
+            initial={false}
+            animate={
+              isLoaded && isInView
+                ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
+                : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
+            }
+            transition={{ duration: 1, delay: 1 }}
+            viewport={{ once: true }}
+            onViewportEnter={() => setIsInView(true)}
           >
             <img
               src={item.image}
               className="w-full h-full object-cover"
               alt={`website + ${index}`}
+              onLoad={() => setIsLoaded(true)}
             />
             <div className="absolute h-full p-3.5 text-white w-full bottom-0 left-0 flex flex-col justify-end bg-gradient-to-b from-transparent to-[rgba(0,0,0,0.58)]">
               <h5 className="font-semibold mb-2">{item.name}</h5>
               <p className="font-normal text-sm">{item.type}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </Carousel>
     </div>

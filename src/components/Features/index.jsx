@@ -26,8 +26,8 @@ const Features = () => {
     },
   ];
   return (
-    <section className="m-auto max-w-[1200px] my-[70px] md:my-[150px]">
-      <h3 className="text-5xl md:text-6xl text-center mb-[30px] leading-normal font-semibold">
+    <section className="m-auto max-w-[1200px] px-4 my-[70px] md:my-[150px]">
+      <h3 className="text-4xl phone:text-5xl md:text-6xl text-center mb-[30px] leading-normal font-semibold">
         Our Features
       </h3>
       <p className="text-sm md:text-lg text-center text-featureText">

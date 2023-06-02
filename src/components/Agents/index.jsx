@@ -55,14 +55,16 @@ const Agents = () => {
   ];
 
   return (
-    <section className="relative flex flex-col items-center p-24 z-0 bg-gradient-to-b from-[rgba(246,251,253,1)] to-[rgba(244,248,253,0)] after:absolute after:contents-[''] after:bg-dotOverlay after:bg-no-repeat after:w-[269px] after:h-[269px] after:right-0 after:top-10 after:-z-[1]">
-      <h1 className="text-center text-6xl font-semibold text-subTitle mb-8">Our Featured Agents</h1>
+    <section className="relative flex flex-col items-center p-4 lg:p-24 z-0 bg-gradient-to-b from-[rgba(246,251,253,1)] to-[rgba(244,248,253,0)] after:absolute after:contents-[''] after:bg-dotOverlay after:bg-no-repeat after:bg-[length:200px_200px] sm:after:bg-[length:269px_269px] sm:after:opacity-60 after:bg-right-top after:w-full after:h-full after:right-0 after:top-10 after:-z-[1]">
+      <h1 className="text-center text-4xl phone:text-5xl md:text-6xl font-semibold text-subTitle mb-8">
+        Our Featured Agents
+      </h1>
       <h6 className="text-center text-xl text-[#343951]">Meet our amazing team members</h6>
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center md:grid md:grid-cols-3 max-w-maxWidth1 gap-5 py-10 mb-[150px]"
+        className="flex flex-col items-center md:grid md:grid-cols-3 max-w-maxWidth1 gap-5 py-10 mb-[50px] sm:mb-[150px]"
       >
         {agentItems.map((item, index) => (
           <AgentItem key={index} image={item.image} info={item.info} style={item.class} />

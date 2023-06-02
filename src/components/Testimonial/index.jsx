@@ -48,7 +48,7 @@ const data = [
 
 const Pagination = ({ centerSlideDataIndex }) => {
   return (
-    <div className="flex justify-center gap-4 mt-28 my-20">
+    <div className="flex justify-center gap-4 mt-14 my-10 lg:mt-28 lg:my-20">
       {data.map((_, index) => {
         const isCenterSlide = centerSlideDataIndex === index;
         return (
@@ -81,13 +81,13 @@ const Testimonial = (props) => {
   }, []);
   return (
     <>
-      <h1 className="text-center text-5xl md:text-6xl font-semibold text-subTitle">
+      <h1 className="text-center text-4xl phone:text-5xl md:text-6xl font-semibold text-subTitle">
         What our Customers say
       </h1>
-      <h5 className="text-center text-sm md:text-lg mt-6 mb-10 md:mb-16 text-[#9598A0]">
+      <h5 className="text-center text-lg mt-6 mb-10 md:mb-16 text-[#9598A0]">
         All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks.
       </h5>
-      <div className="relative w-full py-10">
+      <div className="relative w-full phone:py-10">
         <ResponsiveContainer
           carouselRef={ref}
           render={(parentWidth, carouselRef) => {
@@ -114,7 +114,7 @@ const Testimonial = (props) => {
         />
         <>
           <div
-            className="hidden md:block md:absolute top-[40%] left-[10%] z-10 border rounded-full p-5"
+            className="hidden md:block md:absolute top-[40%] left-[5%] lg:left-[10%] z-10 border rounded-full p-5"
             onClick={() => {
               ref.current?.goBack();
             }}
@@ -122,7 +122,7 @@ const Testimonial = (props) => {
             <Icon icon="fe:arrow-left" color="#5f5f5f" width="12" height="12" />
           </div>
           <div
-            className="hidden md:block md:absolute top-[40%] right-[10%] z-10 border rounded-full p-5"
+            className="hidden md:block md:absolute top-[40%] right-[5%] lg:right-[10%] z-10 border rounded-full p-5"
             onClick={() => {
               ref.current?.goNext();
             }}

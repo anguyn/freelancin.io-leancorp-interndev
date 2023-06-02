@@ -26,11 +26,20 @@ const Services = () => {
       description: 'Our support team will get assistance from AI-powered.',
     },
   ];
+
   return (
     <section className="m-auto max-w-maxWidth1 px-4 relative mb-[70px] md:mb-[150px]">
-      <img src={DotOverlay} alt="" className="absolute top-[170px] left-[-100px] z-[-10]" />
-      <img src={DotOverlay} alt="" className="absolute bottom-[-100px] right-[-100px] z-[-10]" />
-      <h3 className="text-5xl md:text-6xl text-center mb-[30px] leading-normal font-semibold">
+      <img
+        src={DotOverlay}
+        alt="Dot-Overlay1"
+        className="absolute top-[170px] left-[-100px] -z-10"
+      />
+      <img
+        src={DotOverlay}
+        alt="Dot-Overlay2"
+        className="absolute bottom-[-100px] right-0 md:right-[-100px] -z-10"
+      />
+      <h3 className="text-4xl phone:text-5xl md:text-6xl text-center mb-[30px] leading-normal font-semibold">
         Services
       </h3>
       <p className="text-sm md:text-lg text-center text-featureText">

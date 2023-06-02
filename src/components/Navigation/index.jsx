@@ -49,51 +49,14 @@ const Navbar = () => {
   const [color, setColor] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const changeColor = () => {
-    if (window.scrollY >= 500) setColor(true);
+    if (window.scrollY >= 350) setColor(true);
     else setColor(false);
   };
   window.addEventListener('scroll', changeColor);
 
   return (
-    // <section
-    //   className={`fixed z-50 top-0 left-0 right-0 h-[80px] shadow-lg ${
-    //     color ? 'bg-white transition-all duration-400 ease-linear' : 'bg-transparent'
-    //   }`}
-    // >
-    //   <div className="w-100% flex justify-between items-center m-auto max-w-[1200px] py-4">
-    //     <Logo />
-    //     <ul className="flex gap-[36px] text-navText text-[16px]">
-    //       <Link to="/" className="flex items-center">
-    //         <span className="pr-[7px]">Services</span>
-    //         <Icon icon="iconamoon:arrow-down-2-fill" color="#6c768d" />
-    //       </Link>
-    //       <Link to="/">About us</Link>
-    //       <Link to="/">Blog</Link>
-    //     </ul>
-    //     <div className="flex gap-[16px]">
-    //       <select
-    //         className="flex items-center py-[8px] px-[24px] rounded-[22px] border bg-transparent border-white text-navText outline-primary"
-    //         // onChange={handleUserChange}
-    //         defaultValue={'en'}
-    //       >
-    //         {options?.map((option) => (
-    //           <option
-    //             key={option.value}
-    //             value={option.value}
-    //             className="text-base p-10 rounded-none"
-    //           >
-    //             {option.label}
-    //           </option>
-    //         ))}
-    //       </select>
-    //       <button className="px-[40px] py-[13px] rounded-[22px] bg-primary text-white font-medium text-[16px]">
-    //         Contact us
-    //       </button>
-    //     </div>
-    //   </div>
-    // </section>
     <header
-      className={`fixed z-20 top-0 left-0 right-0 h-[80px] shadow-lg ${
+      className={`fixed z-20 top-0 left-0 right-0 h-[80px] w-screen shadow-lg ${
         color ? 'bg-white transition-all duration-400 ease-linear' : 'bg-transparent'
       }`}
     >
@@ -106,10 +69,25 @@ const Navbar = () => {
             <Logo />
           </a>
         </div>
-        <div className={`lg:hidden flex`}>
+        <div className={`lg:hidden flex gap-4`}>
+          <select
+            className="flex items-center py-[8px] px-[24px] rounded-[22px] border bg-transparent border-subTitle text-navText outline-primary"
+            // onChange={handleLanguagesChange}
+            defaultValue={'en'}
+          >
+            {options?.map((option) => (
+              <option
+                key={option.value}
+                value={option.value}
+                className="text-base p-10 rounded-none"
+              >
+                {option.label}
+              </option>
+            ))}
+          </select>
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-subTitle"
             onClick={() => setMobileMenuOpen(true)}
           >
             <div id="nav-icon3" className={mobileMenuOpen ? 'open' : null}>
@@ -172,7 +150,7 @@ const Navbar = () => {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
           <select
             className="flex items-center py-[8px] px-[24px] rounded-[22px] border bg-transparent border-white text-navText outline-primary"
-            // onChange={handleUserChange}
+            // onChange={handleLanguagesChange}
             defaultValue={'en'}
           >
             {options?.map((option) => (
@@ -185,7 +163,7 @@ const Navbar = () => {
               </option>
             ))}
           </select>
-          <button className="px-[40px] py-[13px] rounded-[22px] bg-primary text-white font-medium text-[16px]">
+          <button className="px-[40px] py-[13px] rounded-full bg-primary text-white font-medium text-[16px]">
             Contact us
           </button>
         </div>
@@ -199,13 +177,11 @@ const Navbar = () => {
                 <Disclosure as="div" className="-mx-3">
                   {({ open }) => (
                     <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white">
                         Services
                         <Icon
                           icon="iconamoon:arrow-down-2-light"
-                          className={`flex-none ${open ? 'rotate-180' : ''}`}
-                          width="6"
-                          height="6"
+                          className={`flex-none w-6 h-6 ${open ? 'rotate-180' : ''}`}
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
@@ -214,7 +190,7 @@ const Navbar = () => {
                             key={item.name}
                             as="a"
                             href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm leading-7 text-gray-900 hover:bg-gray-50"
+                            className="block rounded-lg py-2 pl-6 pr-3 text-sm leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-slate-400"
                           >
                             {item.name}
                           </Disclosure.Button>
@@ -225,19 +201,19 @@ const Navbar = () => {
                 </Disclosure>
                 <Link
                   to=""
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                 >
                   Explore
                 </Link>
                 <Link
                   to="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                 >
                   About us
                 </Link>
                 <Link
                   to="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                 >
                   Blog
                 </Link>
@@ -245,9 +221,9 @@ const Navbar = () => {
               <div className="py-6">
                 <Link
                   to="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                 >
-                  Log in
+                  Contact us
                 </Link>
               </div>
             </div>
