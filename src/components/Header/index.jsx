@@ -1,34 +1,32 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Audience, Sales, Knowledge } from '../SVGs';
+import { useTranslation } from 'react-i18next';
 import { motion, useInView } from 'framer-motion';
 import Overlay from '../../assets/images/Home/Header/Overlay.png';
 import EllipsedAvatar from '../../assets/images/Home/Header/EllipsedAvatar.png';
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: <Audience className="w-20" />,
-      title: 'Grow your audience',
-      description: 'Find new customers and build your email list with lead generation ..',
+      title: t('header.feature1'),
+      description: t('header.desc1'),
     },
     {
       icon: <Sales className="w-20" />,
-      title: 'Boost online sales',
-      description: 'Market your ecommerce business and deliver experiences ..',
+      title: t('header.feature2'),
+      description: t('header.desc2'),
     },
     {
       icon: <Knowledge className="w-20" />,
-      title: 'Sell your knowledge',
-      description: 'Build a following, engage them with your content ..',
+      title: t('header.feature3'),
+      description: t('header.desc3'),
     },
   ];
 
-  const toRotate = [
-    'Find & Hire Expert Freelancers',
-    'Or... ',
-    'Become A Freelance Partner',
-    'Join FreeLancin.io Now!',
-  ];
+  const toRotate = [t('header.title1'), t('header.title2'), t('header.title3'), t('header.title4')];
 
   const featureRef = useRef(null);
   const textRef = useRef(null);
@@ -71,7 +69,7 @@ const Header = () => {
           <div className="relative shadow-md bg-white p-3 rounded">
             <p className="text-center text-greenText font-medium text-sm mb-4">
               Amanda M.
-              <br /> is hired!
+              <br /> {t('header.hire')}
             </p>
             <div className="bg-milk p-4 rounded text-center text-sm ">
               <p className="text-lightGray">You Earned</p>
@@ -100,10 +98,9 @@ const Header = () => {
             transition={{ type: 'spring', bounce: 0.45 }}
             className="text-lightText2 text-base text-center md:text-left md:text-lg my-5"
           >
-            Work with the best freelance talent from around the
+            {t('header.desc13')}
             <br className="hidden phone:block" />
-            world on our secure flexible and cost-effective <br className="hidden phone:block" />{' '}
-            platform.
+            {t('header.desc23')} <br className="hidden phone:block" /> {t('header.desc33')}
           </motion.p>
           <div className="flex justify-center md:justify-start gap-5">
             <button className="bg-primary text-white text-[15px] text-center rounded-full py-3.5 px-10 transition-all duration-200 ease-linear border border-transparent hover:bg-white hover:border hover:border-primary hover:text-primary">
