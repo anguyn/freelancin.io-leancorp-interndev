@@ -8,8 +8,8 @@ export default {
     },
     extend: {
       backgroundImage: {
-        heroBackground: "url('./src/assets/images/Home/Header/HeroImage.png')",
-        dotOverlay: "url('./src/assets/images/Home/Agents/DotOverlay.png')",
+        heroBackground: "url('/src/assets/images/Home/Header/HeroImage.png')",
+        dotOverlay: "url('/src/assets/images/Home/Agents/DotOverlay.png')",
         linearAgent: 'linear-gradient(225deg,rgba(246,251,253,1),rgba(244,248,253,0))',
       },
       colors: {

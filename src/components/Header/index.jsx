@@ -84,7 +84,7 @@ const Header = () => {
             />
           </div>
         </article>
-        <section className="max-w-maxWidth1 mx-auto phone:mx-0 md:relative lg:static md:top-1/2 lg:top-auto md:-translate-y-1/2 lg:translate-y-1/2">
+        <section className="max-w-maxWidth1 md:w-[700px] xl:w-[1232px] mx-auto phone:mx-0 self-center md:relative lg:static md:top-1/2 lg:top-auto md:-translate-y-1/2 lg:translate-y-1/2">
           <div className="flex relative mt-2 my-8">
             <h1 className="text-4xl md:max-w-[600px] phone:text-5xl text-center md:text-left md:leading-slug lg:text-6xl lg:leading-slug text-boldText font-bold">
               {text}
@@ -120,7 +120,7 @@ const Header = () => {
           opacity: isInView ? 1 : 0,
           transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
         }}
-        className="features flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-5 max-w-maxWidth1 mx-auto mt-12 md:mt-32 px-4"
+        className="features flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-5 max-w-maxWidth1 mx-auto mt-6 phone:mt-12 md:mt-32 px-4"
       >
         {features.map((item, index) => (
           <div key={index} className="flex flex-col justify-center items-center">
