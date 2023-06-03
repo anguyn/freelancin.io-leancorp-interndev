@@ -49,7 +49,7 @@ const Navbar = () => {
   const [color, setColor] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const changeColor = () => {
-    if (window.scrollY >= 350) setColor(true);
+    if (window.scrollY >= 50) setColor(true);
     else setColor(false);
   };
   window.addEventListener('scroll', changeColor);
@@ -168,68 +168,80 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 mt-[80px] w-full overflow-y-auto bg-white sm:ring-1 sm:ring-gray-900/10">
-          <div className="mt-4 px-6 py-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6 pt-0">
-                <Disclosure as="div" className="-mx-3">
-                  {({ open }) => (
-                    <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white">
-                        Services
-                        <Icon
-                          icon="iconamoon:arrow-down-2-light"
-                          className={`flex-none w-6 h-6 ${open ? 'rotate-180' : ''}`}
-                        />
-                      </Disclosure.Button>
-                      <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products].map((item) => (
-                          <Disclosure.Button
-                            key={item.name}
-                            as="a"
-                            href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-slate-400"
-                          >
-                            {item.name}
+
+      <Transition appear show={mobileMenuOpen}>
+        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+          <Transition.Child
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed z-10" />
+            <Dialog.Panel className="fixed inset-y-0 right-0 z-10 mt-[80px] w-full overflow-y-auto bg-white sm:ring-1 sm:ring-gray-900/10">
+              <div className="mt-4 px-6 py-6 flow-root">
+                <div className="-my-6 divide-y divide-gray-500/10">
+                  <div className="space-y-2 py-6 pt-0">
+                    <Disclosure as="div" className="-mx-3">
+                      {({ open }) => (
+                        <>
+                          <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white">
+                            Services
+                            <Icon
+                              icon="iconamoon:arrow-down-2-light"
+                              className={`flex-none w-6 h-6 ${open ? 'rotate-180' : ''}`}
+                            />
                           </Disclosure.Button>
-                        ))}
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>
-                <Link
-                  to=""
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
-                >
-                  Explore
-                </Link>
-                <Link
-                  to="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
-                >
-                  About us
-                </Link>
-                <Link
-                  to="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
-                >
-                  Blog
-                </Link>
+                          <Disclosure.Panel className="mt-2 space-y-2">
+                            {[...products].map((item) => (
+                              <Disclosure.Button
+                                key={item.name}
+                                as="a"
+                                href={item.href}
+                                className="block rounded-lg py-2 pl-6 pr-3 text-sm leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-slate-400"
+                              >
+                                {item.name}
+                              </Disclosure.Button>
+                            ))}
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
+                    <Link
+                      to=""
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
+                    >
+                      Explore
+                    </Link>
+                    <Link
+                      to="#"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
+                    >
+                      About us
+                    </Link>
+                    <Link
+                      to="#"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
+                    >
+                      Blog
+                    </Link>
+                  </div>
+                  <div className="py-6">
+                    <Link
+                      to="#"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
+                    >
+                      Contact us
+                    </Link>
+                  </div>
+                </div>
               </div>
-              <div className="py-6">
-                <Link
-                  to="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
-                >
-                  Contact us
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
+            </Dialog.Panel>
+          </Transition.Child>
+        </Dialog>
+      </Transition>
     </header>
   );
 };

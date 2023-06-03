@@ -67,7 +67,7 @@
   }
 
   #nav-icon3 span:nth-child(4) {
-    @apply top-5;
+    @apply top-[18px];
   }
 
   #nav-icon3.open span:nth-child(1) {

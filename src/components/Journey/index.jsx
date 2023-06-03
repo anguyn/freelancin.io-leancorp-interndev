@@ -9,7 +9,7 @@ const Counter = ({ from, to, styles }) => {
     const node = nodeRef.current;
 
     const controls = animate(from, to, {
-      duration: 10,
+      duration: 7,
       onUpdate(value) {
         node.textContent = value.toFixed() + '%';
       },
