@@ -114,7 +114,7 @@ const Testimonial = (props) => {
         />
         <>
           <div
-            className="hidden md:block md:absolute top-[40%] left-[5%] lg:left-[10%] z-10 border rounded-full p-5"
+            className="hidden md:block md:absolute top-[40%] left-[5%] lg:left-[10%] z-10 border rounded-full p-5 cursor-pointer transition-all duration-200 ease-linear hover:bg-[rgba(0,0,0,0.05)]"
             onClick={() => {
               ref.current?.goBack();
             }}
@@ -122,7 +122,7 @@ const Testimonial = (props) => {
             <Icon icon="fe:arrow-left" color="#5f5f5f" width="12" height="12" />
           </div>
           <div
-            className="hidden md:block md:absolute top-[40%] right-[5%] lg:right-[10%] z-10 border rounded-full p-5"
+            className="hidden md:block md:absolute top-[40%] right-[5%] lg:right-[10%] z-10 border rounded-full p-5 cursor-pointer transition-all duration-200 ease-linear hover:bg-[rgba(0,0,0,0.05)]"
             onClick={() => {
               ref.current?.goNext();
             }}

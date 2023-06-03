@@ -2,11 +2,13 @@
 
 ## Description:
 
-This is a test to apply for Web Development intern position at Lean Corporation. This kinda assessment is fully responsive.
+This is a test to apply for Web Development intern position at Lean Corporation. This kinda assessment is fully responsive with some animation effects.
 
 ## Demo:
 
-... Waiting
+<p align="center">
+    <img src="public/FreeLancin-Demo.png" width="800"/>
+</p>
 
 ## Usages:
 
@@ -27,7 +29,7 @@ This is a test to apply for Web Development intern position at Lean Corporation.
 
 5️⃣ First option is to run development environment for developers by runnin' this command line `npm run dev`
 
-6️⃣ Last option is to remove the whole project and open your using browser then navigate to `https://geek-up-todo.vercel.app/`
+6️⃣ Last option is to remove the whole project and open your using browser then navigate to `https://freelancin-io-leancorp-interndev-anguyn.vercel.app/`
 
 7️⃣ 🎉🎉🎉
 

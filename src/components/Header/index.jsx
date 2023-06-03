@@ -26,7 +26,7 @@ const Header = () => {
   const toRotate = [
     'Find & Hire Expert Freelancers',
     'Or... ',
-    'Want To Become A Freelance Partner For Us?',
+    'Become A Freelance Partner',
     'Join FreeLancin.io Now!',
   ];
 
@@ -84,12 +84,14 @@ const Header = () => {
             />
           </div>
         </article>
-        <section className="max-w-maxWidth1 md:w-[700px] xl:w-[1232px] mx-auto phone:mx-0 self-center md:relative lg:static md:top-1/2 lg:top-auto md:-translate-y-1/2 lg:translate-y-1/2">
-          <div className="flex relative mt-2 my-8">
-            <h1 className="text-4xl md:max-w-[600px] phone:text-5xl text-center md:text-left md:leading-slug lg:text-6xl lg:leading-slug text-boldText font-bold">
-              {text}
-            </h1>
-            <div className="ml-2 w-px h-16 self-center rounded-full dark:bg-white bg-slate-900 opacity-1 transition-opacity animate-blink"></div>
+        <section className="max-w-maxWidth1 md:w-[700px] xl:w-[1232px] mx-auto phone:mx-0 self-center md:self-auto xl:self-center md:relative lg:static md:top-1/2 lg:top-auto md:-translate-y-1/2 lg:translate-y-1/2">
+          <div className="h-22 lg:h-40 phone:h-32">
+            <div className="inline-flex relative mt-2 my-8 ">
+              <h1 className="text-4xl md:max-w-[600px] phone:text-5xl text-center md:text-left md:leading-slug lg:text-6xl lg:leading-slug text-boldText font-bold">
+                {text}
+              </h1>
+              <div className="ml-2 w-px h-10 phone:h-12 lg:h-16 self-center rounded-full dark:bg-white bg-slate-900 opacity-1 transition-opacity animate-blink"></div>
+            </div>
           </div>
           <motion.p
             ref={textRef}
@@ -104,10 +106,10 @@ const Header = () => {
             platform.
           </motion.p>
           <div className="flex justify-center md:justify-start gap-5">
-            <button className="bg-primary text-white text-[15px] text-center rounded-full py-3.5 px-10">
+            <button className="bg-primary text-white text-[15px] text-center rounded-full py-3.5 px-10 transition-all duration-200 ease-linear border border-transparent hover:bg-white hover:border hover:border-primary hover:text-primary">
               Contact us
             </button>
-            <button className="border border-primary text-primary text-[15px] text-center rounded-full py-3.5 px-10">
+            <button className="border border-primary text-primary text-[15px] text-center rounded-full py-3.5 px-10 transition-all duration-200 ease-linear hover:bg-white hover:border hover:text-primary">
               Learn more
             </button>
           </div>

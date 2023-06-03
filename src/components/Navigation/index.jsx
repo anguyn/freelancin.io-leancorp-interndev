@@ -10,18 +10,6 @@ const options = [
   { value: 'vi', label: 'VI' },
 ];
 
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-};
-
 const products = [
   {
     name: 'IT',
@@ -48,17 +36,19 @@ const products = [
 const Navbar = () => {
   const [color, setColor] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const changeColor = () => {
     if (window.scrollY >= 50) setColor(true);
     else setColor(false);
   };
+
   window.addEventListener('scroll', changeColor);
 
   return (
     <header
-      className={`fixed z-20 top-0 left-0 right-0 h-[80px] w-screen shadow-lg ${
-        color ? 'bg-white transition-all duration-400 ease-linear' : 'bg-transparent'
-      }`}
+      className={`fixed z-20 top-0 left-0 right-0 h-[80px] w-screen shadow-lg transition-all duration-400 ease-linear ${
+        color ? 'bg-white ' : 'bg-transparent'
+      } ${mobileMenuOpen ? 'bg-white' : null}`}
     >
       <nav
         className="m-auto flex max-w-maxWidth1 h-full items-center justify-between px-4 lg:py-4"
@@ -163,7 +153,7 @@ const Navbar = () => {
               </option>
             ))}
           </select>
-          <button className="px-[40px] py-[13px] rounded-full bg-primary text-white font-medium text-[16px]">
+          <button className="px-[40px] py-[13px] rounded-full bg-primary text-white font-medium text-[16px] transition-all duration-250 ease-linear border border-transparent hover:bg-white hover:border hover:border-primary hover:text-primary">
             Contact us
           </button>
         </div>

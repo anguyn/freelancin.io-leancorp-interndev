@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import { Icon } from '@iconify/react';
 import 'react-multi-carousel/lib/styles.css';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Project1 from '../../assets/images/Home/Projects/Project1.png';
 import Project2 from '../../assets/images/Home/Projects/Project2.png';
 import Project3 from '../../assets/images/Home/Projects/Project3.png';
@@ -141,8 +141,10 @@ const Projects = () => {
               else setSelectedProjects(projects);
             }}
             className={`${
-              activeTab === tab.id ? 'text-white bg-transparent' : 'bg-[#F1F1F1] text-[#ACACAC]'
-            } relative rounded-full w-[120px] py-1.5 text-sm font-medium  outline-sky-400 transition focus-visible:outline-2`}
+              activeTab === tab.id
+                ? 'text-white bg-transparent'
+                : 'bg-[#F1F1F1] text-[#ACACAC] hover:scale-105 hover:bg-slate-500 hover:text-black'
+            } relative rounded-full w-[120px] py-1.5 text-sm font-medium  outline-sky-400 focus-visible:outline-2 transition-all duration-200 ease-linear`}
             style={{
               WebkitTapHighlightColor: 'transparent',
             }}
@@ -160,7 +162,7 @@ const Projects = () => {
       </div>
       <div className="flex justify-center sm:justify-end sm:px-4 gap-4 max-w-maxWidth1 my-10 mx-auto">
         <div
-          className="border rounded-full p-5 cursor-pointer"
+          className="border rounded-full p-5 cursor-pointer transition-all duration-200 ease-linear hover:bg-[rgba(0,0,0,0.05)]"
           onClick={() => {
             carouselRef.current.previous();
           }}
@@ -168,7 +170,7 @@ const Projects = () => {
           <Icon icon="fe:arrow-left" color="#5f5f5f" width="12" height="12" />
         </div>
         <div
-          className="border rounded-full p-5 cursor-pointer"
+          className="border rounded-full p-5 cursor-pointer transition-all duration-200 ease-linear hover:bg-[rgba(0,0,0,0.05)]"
           onClick={() => {
             carouselRef.current.next();
           }}

@@ -8,7 +8,7 @@ const Footer = () => {
         People who are <br /> ready took these courses!
       </h1>
       <div className="block mt-16 text-center">
-        <button className="bg-white text-button2 font-medium rounded-[10px] py-[22px] px-[40px]">
+        <button className="bg-white text-button2 font-medium rounded-[10px] py-[22px] px-[40px] transition-all duration-200 ease-linear hover:text-primary hover:scale-105 hover:font-semibold">
           Schedule Appointment
         </button>
       </div>
