@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StackedCarousel, ResponsiveContainer } from 'react-stacked-center-carousel';
 import { Icon } from '@iconify/react';
+import { useTranslation } from 'react-i18next';
 import Card from './Card';
 import Customer1 from '../../assets/images/Home/Testimonial/Customer1.png';
 import Customer2 from '../../assets/images/Home/Testimonial/Customer2.png';
@@ -8,45 +9,42 @@ import Customer3 from '../../assets/images/Home/Testimonial/Customer3.png';
 import Customer4 from '../../assets/images/Home/Testimonial/Customer4.png';
 import Customer5 from '../../assets/images/Home/Testimonial/Customer5.png';
 
-const data = [
-  {
-    cover: Customer1,
-    name: 'Stephan Louis',
-    job: 'Developer',
-    feedback:
-      'Lorem ipsum dolor sit amet, consectet adip incididunt ut labore et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem dolor sit am ',
-  },
-  {
-    cover: Customer2,
-    name: 'Jeff Smith',
-    job: 'Digital Artist',
-    feedback:
-      'Lorem ipsum dolor sit am, consectetur adipis occ tempor inv sapient et non pro id el component lobortis et inter lobortis et inter lob Architect et inter lobortis ',
-  },
-  {
-    cover: Customer3,
-    name: 'Adam Pritchard',
-    job: 'Journalist',
-    feedback:
-      'Lorem ipsum dolor sit amet, consectet adip incididunt ut labore et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem dolor sit am ',
-  },
-  {
-    cover: Customer4,
-    name: 'Christopher Green',
-    job: 'Interpreter',
-    feedback:
-      'Lorem ipsum dolor sit amet, consectet adip incididunt ut labore et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem dolor sit am ',
-  },
-  {
-    cover: Customer5,
-    name: 'Kate Denson',
-    job: 'Developer',
-    feedback:
-      'Lorem ipsum dolor sit amet, consectet adip incididunt ut labore et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem ipsum dolor sit am et dolor. Lorem dolor sit am ',
-  },
-];
-
 const Pagination = ({ centerSlideDataIndex }) => {
+  const { t } = useTranslation();
+
+  const data = [
+    {
+      cover: Customer1,
+      name: t('testimonial.customer1'),
+      job: t('testimonial.job1'),
+      feedback: t('testimonial.feedback1'),
+    },
+    {
+      cover: Customer2,
+      name: t('testimonial.customer2'),
+      job: t('testimonial.job2'),
+      feedback: t('testimonial.feedback3'),
+    },
+    {
+      cover: Customer3,
+      name: t('testimonial.customer3'),
+      job: t('testimonial.job3'),
+      feedback: t('testimonial.feedback3'),
+    },
+    {
+      cover: Customer4,
+      name: t('testimonial.customer4'),
+      job: t('testimonial.job4'),
+      feedback: t('testimonial.feedback4'),
+    },
+    {
+      cover: Customer5,
+      name: t('testimonial.customer5'),
+      job: t('testimonial.job5'),
+      feedback: t('testimonial.feedback5'),
+    },
+  ];
+
   return (
     <div className="flex justify-center gap-4 mt-14 my-10 lg:mt-28 lg:my-20">
       {data.map((_, index) => {
@@ -65,6 +63,40 @@ const Pagination = ({ centerSlideDataIndex }) => {
 const Testimonial = (props) => {
   const [centerSlideDataIndex, setCenterSlideDataIndex] = useState(0);
   const ref = React.useRef();
+  const { t } = useTranslation();
+
+  const data = [
+    {
+      cover: Customer1,
+      name: t('testimonial.customer1'),
+      job: t('testimonial.job1'),
+      feedback: t('testimonial.feedback1'),
+    },
+    {
+      cover: Customer2,
+      name: t('testimonial.customer2'),
+      job: t('testimonial.job2'),
+      feedback: t('testimonial.feedback3'),
+    },
+    {
+      cover: Customer3,
+      name: t('testimonial.customer3'),
+      job: t('testimonial.job3'),
+      feedback: t('testimonial.feedback3'),
+    },
+    {
+      cover: Customer4,
+      name: t('testimonial.customer4'),
+      job: t('testimonial.job4'),
+      feedback: t('testimonial.feedback4'),
+    },
+    {
+      cover: Customer5,
+      name: t('testimonial.customer5'),
+      job: t('testimonial.job5'),
+      feedback: t('testimonial.feedback5'),
+    },
+  ];
 
   const onCenterSlideDataIndexChange = (newIndex) => {
     setCenterSlideDataIndex(newIndex);
@@ -82,10 +114,10 @@ const Testimonial = (props) => {
   return (
     <>
       <h1 className="text-center text-4xl phone:text-5xl md:text-6xl font-semibold text-subTitle">
-        What our Customers say
+        {t('testimonial.title')}
       </h1>
       <h5 className="text-center text-lg mt-6 mb-10 md:mb-16 text-[#9598A0]">
-        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks.
+        {t('testimonial.header')}
       </h5>
       <div className="relative w-full phone:py-10">
         <ResponsiveContainer

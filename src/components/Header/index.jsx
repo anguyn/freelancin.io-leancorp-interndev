@@ -72,7 +72,7 @@ const Header = () => {
               <br /> {t('header.hire')}
             </p>
             <div className="bg-milk p-4 rounded text-center text-sm ">
-              <p className="text-lightGray">You Earned</p>
+              <p className="text-lightGray">{t('header.earn')}</p>
               <span className="text-2xl text-primary font-medium">$3,000</span>
             </div>
             <img
@@ -104,10 +104,10 @@ const Header = () => {
           </motion.p>
           <div className="flex justify-center md:justify-start gap-5">
             <button className="bg-primary text-white text-[15px] text-center rounded-full py-3.5 px-10 transition-all duration-200 ease-linear border border-transparent hover:bg-white hover:border hover:border-primary hover:text-primary">
-              Contact us
+              {t('header.contact')}
             </button>
             <button className="border border-primary text-primary text-[15px] text-center rounded-full py-3.5 px-10 transition-all duration-200 ease-linear hover:bg-white hover:border hover:text-primary">
-              Learn more
+              {t('header.learn')}
             </button>
           </div>
         </section>

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Service, Clients, Consultation, Callback } from '../SVGs';
 import { Link } from 'react-router-dom';
 import { motion, animate, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const variant1 = {
   open: {
@@ -30,26 +31,28 @@ const variant2 = {
 };
 
 const Features = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: <Service className="w-20" />,
-      title: 'Choosing a Service',
-      description: 'Choosing an accountant that matches your needs',
+      title: t('features.feature1'),
+      description: t('features.desc1'),
     },
     {
       icon: <Clients className="w-20" />,
-      title: 'Our Clients Say',
-      description: 'Read the reviews from some of our satisfied clients',
+      title: t('features.feature2'),
+      description: t('features.desc2'),
     },
     {
       icon: <Consultation className="w-20" />,
-      title: 'Initial Consultation',
-      description: 'Understanding your accountancy requirements',
+      title: t('features.feature3'),
+      description: t('features.desc3'),
     },
     {
       icon: <Callback className="w-20" />,
-      title: 'Request a Callback',
-      description: 'Lets talk at a more convenient time for you',
+      title: t('features.feature4'),
+      description: t('features.desc4'),
     },
   ];
 
@@ -59,12 +62,12 @@ const Features = () => {
   return (
     <section className="m-auto max-w-[1200px] px-4 my-[70px] md:my-[150px]">
       <h3 className="text-4xl phone:text-5xl md:text-6xl text-center mb-[30px] leading-normal font-semibold">
-        Our Features
+        {t('features.title')}
       </h3>
-      <p className="text-sm md:text-lg text-center text-featureText">
-        Unleash your creativety with a visual collaboration <br /> plattorm that enables effective
-        ideation
-      </p>
+      <p
+        className="text-sm md:text-lg text-center text-featureText"
+        dangerouslySetInnerHTML={{ __html: t('features.header') }}
+      ></p>
       <motion.div
         ref={ref}
         className="grid grid-cols-1 gap-[30px] md:grid md:grid-cols-2 lg:grid-cols-4 my-[25px] md:my-[50px] md:gap-[75px]"
@@ -91,7 +94,7 @@ const Features = () => {
         })}
       </motion.div>
       <Link to="/" className="flex justify-center text-primary">
-        <span className="underline underline-offset-4 pr-[5px]">Learn more </span>
+        <span className="underline underline-offset-4 pr-[5px]">{t('features.learn')}</span>
         &gt;
       </Link>
     </section>

@@ -1,41 +1,44 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../SVGs';
-import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const options = [
   { value: 'en', label: 'EN' },
   { value: 'vi', label: 'VI' },
 ];
 
-const products = [
-  {
-    name: 'IT',
-    href: '#',
-  },
-  {
-    name: 'Digital Design',
-    href: '#',
-  },
-  {
-    name: 'Security',
-    href: '#',
-  },
-  {
-    name: 'Integrations',
-    href: '#',
-  },
-  {
-    name: 'Automations',
-    href: '#',
-  },
-];
-
 const Navbar = () => {
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
+  const [lng, setLng] = useState('en');
   const [color, setColor] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const products = [
+    {
+      name: t('navigation.it'),
+      href: '#',
+    },
+    {
+      name: t('navigation.design'),
+      href: '#',
+    },
+    {
+      name: t('navigation.security'),
+      href: '#',
+    },
+    {
+      name: t('navigation.integrations'),
+      href: '#',
+    },
+    {
+      name: t('navigation.automations'),
+      href: '#',
+    },
+  ];
 
   const changeColor = () => {
     if (window.scrollY >= 50) setColor(true);
@@ -43,6 +46,15 @@ const Navbar = () => {
   };
 
   window.addEventListener('scroll', changeColor);
+
+  const handleChangeLanguage = (e) => {
+    setLng(e.target.value);
+    i18n.changeLanguage(e.target.value);
+  };
+
+  useEffect(() => {
+    i18n.changeLanguage(lng);
+  }, [lng]);
 
   return (
     <header
@@ -55,15 +67,15 @@ const Navbar = () => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <Logo />
-          </a>
+          </Link>
         </div>
         <div className={`lg:hidden flex gap-4`}>
           <select
             className="flex items-center py-[8px] px-[24px] rounded-[22px] border bg-transparent border-subTitle text-navText outline-primary"
-            // onChange={handleLanguagesChange}
-            defaultValue={'en'}
+            value={lng}
+            onChange={handleChangeLanguage}
           >
             {options?.map((option) => (
               <option
@@ -91,7 +103,7 @@ const Navbar = () => {
         <Popover.Group className="hidden lg:flex lg:gap-x-12 gap-[36px]">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-navText text-base">
-              Services
+              {t('navigation.services')}
               <Icon
                 className="w-4 h-4 flex-none"
                 aria-hidden="true"
@@ -131,17 +143,17 @@ const Navbar = () => {
 
           <ul className="flex gap-[36px] lg:gap-x-12 text-navText text-[16px]">
             <Link to="/" className="flex items-center">
-              <span className="pr-[7px]">Explore</span>
+              <span className="pr-[7px]">{t('navigation.explore')}</span>
             </Link>
-            <Link to="/">About us</Link>
-            <Link to="/">Blog</Link>
+            <Link to="/">{t('navigation.about')}</Link>
+            <Link to="/">{t('navigation.blog')}</Link>
           </ul>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
           <select
             className="flex items-center py-[8px] px-[24px] rounded-[22px] border bg-transparent border-white text-navText outline-primary"
-            // onChange={handleLanguagesChange}
-            defaultValue={'en'}
+            onChange={handleChangeLanguage}
+            value={lng}
           >
             {options?.map((option) => (
               <option
@@ -154,7 +166,7 @@ const Navbar = () => {
             ))}
           </select>
           <button className="px-[40px] py-[13px] rounded-full bg-primary text-white font-medium text-[16px] transition-all duration-250 ease-linear border border-transparent hover:bg-white hover:border hover:border-primary hover:text-primary">
-            Contact us
+            {t('navigation.contact')}
           </button>
         </div>
       </nav>
@@ -178,7 +190,7 @@ const Navbar = () => {
                       {({ open }) => (
                         <>
                           <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white">
-                            Services
+                            {t('navigation.services')}
                             <Icon
                               icon="iconamoon:arrow-down-2-light"
                               className={`flex-none w-6 h-6 ${open ? 'rotate-180' : ''}`}
@@ -203,19 +215,19 @@ const Navbar = () => {
                       to=""
                       className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                     >
-                      Explore
+                      {t('navigation.explore')}
                     </Link>
                     <Link
                       to="#"
                       className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                     >
-                      About us
+                      {t('navigation.about')}
                     </Link>
                     <Link
                       to="#"
                       className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                     >
-                      Blog
+                      {t('navigation.blog')}
                     </Link>
                   </div>
                   <div className="py-6">
@@ -223,7 +235,7 @@ const Navbar = () => {
                       to="#"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 text-gray-900  transition-all duration-150 ease-in hover:bg-lightPrimary hover:text-white"
                     >
-                      Contact us
+                      {t('navigation.contact')}
                     </Link>
                   </div>
                 </div>

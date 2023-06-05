@@ -2,28 +2,31 @@ import React from 'react';
 import { Star, Website, Image, Analyze } from '../SVGs';
 import ServicesItem from './ServicesItem';
 import DotOverlay from '../../assets/images/Home/Services/DotOverlay.png';
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
       icon: <Star className="w-20" />,
-      title: 'Branding Idendity',
-      description: 'Our support team will get assistance from AI-powered.',
+      title: t('services.service1'),
+      description: t('services.desc'),
     },
     {
       icon: <Website className="w-20" />,
-      title: 'Branding consult',
-      description: 'Our support team will get assistance from AI-powered.',
+      title: t('services.service2'),
+      description: t('services.desc'),
     },
     {
       icon: <Image className="w-20" />,
-      title: 'web development',
-      description: 'Our support team will get assistance from AI-powered.',
+      title: t('services.service3'),
+      description: t('services.desc'),
     },
     {
       icon: <Analyze className="w-20" />,
-      title: 'market anlysis',
-      description: 'Our support team will get assistance from AI-powered.',
+      title: t('services.service4'),
+      description: t('services.desc'),
     },
   ];
 
@@ -40,12 +43,12 @@ const Services = () => {
         className="absolute bottom-[-100px] right-0 md:right-[-100px] -z-10"
       />
       <h3 className="text-4xl phone:text-5xl md:text-6xl text-center mb-[30px] leading-normal font-semibold">
-        Services
+        {t('services.title')}
       </h3>
-      <p className="text-sm md:text-lg text-center text-featureText">
-        Our support team will get assistance from AI-powered suggestions, <br /> making it quicker
-        than ever to handle support requests.
-      </p>
+      <p
+        className="text-sm md:text-lg text-center text-featureText"
+        dangerouslySetInnerHTML={{ __html: t('services.header') }}
+      ></p>
       <div className="grid grid-cols-1 px-[10px] md:grid-cols-2 lg:grid-cols-3 gap-[20px] lg:gap-[40px] mt-[30px] md:mt-[76px] z-[1] bg-white">
         {services.slice(0, 2).map((feature, index) => {
           return (

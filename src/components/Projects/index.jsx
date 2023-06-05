@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import { Icon } from '@iconify/react';
 import 'react-multi-carousel/lib/styles.css';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Project1 from '../../assets/images/Home/Projects/Project1.png';
 import Project2 from '../../assets/images/Home/Projects/Project2.png';
 import Project3 from '../../assets/images/Home/Projects/Project3.png';
@@ -11,29 +12,6 @@ import Project5 from '../../assets/images/Home/Projects/Project5.png';
 import Project6 from '../../assets/images/Home/Projects/Project6.png';
 import Project7 from '../../assets/images/Home/Projects/Project7.png';
 import Project8 from '../../assets/images/Home/Projects/Project8.jpg';
-
-const tabs = [
-  {
-    id: 'all',
-    label: 'All',
-  },
-  {
-    id: 'websites',
-    label: 'Websites',
-  },
-  {
-    id: 'social',
-    label: 'Social Media',
-  },
-  {
-    id: 'ui',
-    label: 'UI/UX',
-  },
-  {
-    id: 'market',
-    label: 'Market',
-  },
-];
 
 const responsive = {
   desktop: {
@@ -58,53 +36,78 @@ const responsive = {
   },
 };
 
-const projects = [
-  {
-    image: Project1,
-    name: 'Quarter',
-    type: 'Company Website',
-  },
-  {
-    image: Project2,
-    name: 'Hotelmania',
-    type: 'Company Website',
-  },
-  {
-    image: Project3,
-    name: 'Furnishop',
-    type: 'Company Website',
-  },
-  {
-    image: Project4,
-    name: 'Thrive CBD',
-    type: 'Company Website',
-  },
-  {
-    image: Project5,
-    name: 'Adora Montminy',
-    type: 'Company Website',
-  },
-  {
-    image: Project6,
-    name: 'Troy Stockert',
-    type: 'Company Website',
-  },
-  {
-    image: Project7,
-    name: 'Styleable',
-    type: 'Company Website',
-  },
-  {
-    image: Project8,
-    name: 'Omega',
-    type: 'Company Website',
-  },
-];
-
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
 const Projects = () => {
+  const { t } = useTranslation();
+
+  const tabs = [
+    {
+      id: 'all',
+      label: t('projects.tab1'),
+    },
+    {
+      id: 'websites',
+      label: t('projects.tab2'),
+    },
+    {
+      id: 'social',
+      label: t('projects.tab3'),
+    },
+    {
+      id: 'ui',
+      label: t('projects.tab4'),
+    },
+    {
+      id: 'market',
+      label: t('projects.tab5'),
+    },
+  ];
+
+  const projects = [
+    {
+      image: Project1,
+      name: 'Quarter',
+      type: t('projects.web'),
+    },
+    {
+      image: Project2,
+      name: 'Hotelmania',
+      type: t('projects.web'),
+    },
+    {
+      image: Project3,
+      name: 'Furnishop',
+      type: t('projects.web'),
+    },
+    {
+      image: Project4,
+      name: 'Thrive CBD',
+      type: t('projects.web'),
+    },
+    {
+      image: Project5,
+      name: 'Adora Montminy',
+      type: t('projects.web'),
+    },
+    {
+      image: Project6,
+      name: 'Troy Stockert',
+      type: t('projects.web'),
+    },
+    {
+      image: Project7,
+      name: 'Styleable',
+      type: t('projects.web'),
+    },
+    {
+      image: Project8,
+      name: 'Omega',
+      type: t('projects.web'),
+    },
+  ];
+
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const carouselRef = useRef();
   const [selectedProjects, setSelectedProjects] = useState(projects);
@@ -123,14 +126,16 @@ const Projects = () => {
     }
     setSelectedProjects(selectedItems);
   };
+
   return (
     <div className="mb-36">
       <h1 className="text-center text-4xl phone:text-5xl md:text-6xl font-semibold text-subTitle">
-        Our Projects
+        {t('projects.title')}
       </h1>
-      <h5 className="text-center text-lg mt-6 mb-12 text-[#9598A0]">
-        We have been providing great <br /> flooring solutions service.
-      </h5>
+      <h5
+        className="text-center text-lg mt-6 mb-12 text-[#9598A0]"
+        dangerouslySetInnerHTML={{ __html: t('projects.header') }}
+      ></h5>
       <div className="flex flex-col sm:flex-row gap-5 items-center justify-center space-x-1">
         {tabs.map((tab) => (
           <button

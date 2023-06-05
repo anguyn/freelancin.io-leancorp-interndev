@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import AgentItem from './AgentItem';
 import Agent1 from '../../assets/images/Home/Agents/Agent1.png';
 import Agent2 from '../../assets/images/Home/Agents/Agent2.png';
@@ -18,6 +19,8 @@ const container = {
 };
 
 const Agents = () => {
+  const { t } = useTranslation();
+
   const agentItems = [
     {
       id: 1,
@@ -57,9 +60,9 @@ const Agents = () => {
   return (
     <section className="relative flex flex-col items-center p-4 lg:p-24 z-0 bg-gradient-to-b from-[rgba(246,251,253,1)] to-[rgba(244,248,253,0)] after:absolute after:contents-[''] after:bg-dotOverlay after:bg-no-repeat after:bg-[length:200px_200px] sm:after:bg-[length:269px_269px] sm:after:opacity-60 after:bg-right-top after:w-full after:h-full after:right-0 after:top-10 after:-z-[1]">
       <h1 className="text-center text-4xl phone:text-5xl md:text-6xl font-semibold text-subTitle mb-8">
-        Our Featured Agents
+        {t('agents.title')}
       </h1>
-      <h6 className="text-center text-xl text-[#343951]">Meet our amazing team members</h6>
+      <h6 className="text-center text-xl text-[#343951]">{t('agents.header')}</h6>
       <motion.div
         variants={container}
         initial="hidden"

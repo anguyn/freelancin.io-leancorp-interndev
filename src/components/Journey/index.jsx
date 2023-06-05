@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, animate, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Counter = ({ from, to, styles }) => {
   const nodeRef = useRef();
@@ -22,6 +23,8 @@ const Counter = ({ from, to, styles }) => {
 };
 
 const Jouney = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="m-auto max-w-maxWidth1 px-4">
       <motion.div
@@ -35,29 +38,32 @@ const Jouney = () => {
         }}
       >
         <h3 className="text-center text-4xl phone:text-5xl font-semibold md:text-6xl mb-[73px] leading-normal">
-          Journey of our Success
+          {t('journey.title')}
         </h3>
         <div className="flex flex-col items-center gap-10 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-[110px] font-semibold leading-none">
           <div className="flex flex-col md:block md:w-auto self-start md:self-auto ">
             <Counter from={0} to={85} styles="md:text-[70px] text-6xl" />
             <div className="w-[40%] h-[5px] bg-white my-[5px]"></div>
-            <p className="text-xl mt-2 phone:mt-auto font-normal leading-normal">
-              manage <br /> communication more efficiently
-            </p>
+            <p
+              className="text-xl mt-2 phone:mt-auto font-normal leading-normal"
+              dangerouslySetInnerHTML={{ __html: t('journey.name1') }}
+            ></p>
           </div>
           <div className="w-[350px] flex flex-col md:block md:w-auto self-center md:self-auto text-center md:text-start">
             <Counter from={0} to={95} styles="md:text-[70px] text-6xl" />
             <div className="w-[40%] self-center md:self-auto h-[5px] bg-white my-[5px]"></div>
-            <p className="text-xl mt-2 phone:mt-auto font-normal leading-normal">
-              improve communication with customers and <br /> clients
-            </p>
+            <p
+              className="text-xl mt-2 phone:mt-auto font-normal leading-normal"
+              dangerouslySetInnerHTML={{ __html: t('journey.name2') }}
+            ></p>
           </div>
           <div className="w-[350px] flex flex-col md:block md:w-auto self-end md:self-auto text-right md:text-start">
             <Counter from={0} to={75} styles="md:text-[70px] text-6xl" />
             <div className="w-[40%] self-end md:self-auto h-[5px] bg-white my-[5px]"></div>
-            <p className="text-xl mt-2 phone:mt-auto font-normal leading-normal">
-              average improvement <br /> in team efficiency
-            </p>
+            <p
+              className="text-xl mt-2 phone:mt-auto font-normal leading-normal"
+              dangerouslySetInnerHTML={{ __html: t('journey.name3') }}
+            ></p>
           </div>
         </div>
       </motion.div>
